@@ -7,11 +7,22 @@
   <groupId>com.liang.springcloud</groupId>
   <artifactId>SpringCloud-Learning</artifactId>
   <version>1.0-SNAPSHOT</version>
+  <modules>
+    <module>nacos-discovery-provider8081</module>
+    <module>nacos-discovery-consumer8082</module>
+  </modules>
   <packaging>pom</packaging>
+  <name>Spring Cloud Alibaba </name>
+  <description>Example showing how to use features of Spring Cloud Alibaba</description>
 
 
+  <developers>
+    <developer>
+      <name>xiaoliang</name>
+      <email>jiuqiyuliang@163.com</email>
+    </developer>
+  </developers>
 
-  <name>Maven</name>
   <!-- FIXME change it to the project's website -->
   <url>http://maven.apache.org/</url>
   <inceptionYear>2001</inceptionYear>
@@ -26,26 +37,44 @@
   <!--统一管理jar包版本-->
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <java.version>1.8</java.version>
+
+    <!-- Dependency Versions -->
+
+    <!--spring boot-->
+    <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+
+
+    <!--spring cloud-->
+    <spring-cloud-commons.version>2.2.2.RELEASE</spring-cloud-commons.version>
+    <spring-cloud-dependencies.version>Hoxton.SR1</spring-cloud-dependencies.version>
+    <spring-cloud-alibaba-dependencies.version>2.1.0.RELEASE</spring-cloud-alibaba-dependencies.version>
+
     <junit.version>4.12</junit.version>
     <log4j.version>1.2.17</log4j.version>
     <lombok.version>1.16.18</lombok.version>
     <mysql.version>5.1.47</mysql.version>
     <druid.version>1.1.16</druid.version>
     <mybatis.spring.boot.version>1.3.0</mybatis.spring.boot.version>
-    <java.version>1.8</java.version>
+
+
+    <!-- Maven Plugin Versions -->
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+    <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+
   </properties>
 
   <!--子模块集成之后，提供作用：锁定版本+子module不用写groupId和version-->
 
   <dependencyManagement>
     <dependencies>
-      <!--spring boot 2.2.5-->
+      <!-- Spring Dependencies -->
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.2.5.RELEASE</version>
+        <version>${spring-boot.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -54,7 +83,7 @@
       <dependency>
         <groupId>org.springframework.cloud</groupId>
         <artifactId>spring-cloud-dependencies</artifactId>
-        <version>Hoxton.SR1</version>
+        <version>${spring-cloud-dependencies.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -63,7 +92,15 @@
       <dependency>
         <groupId>com.alibaba.cloud</groupId>
         <artifactId>spring-cloud-alibaba-dependencies</artifactId>
-        <version>2.1.0.RELEASE</version>
+        <version>${spring-cloud-alibaba-dependencies.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-commons-dependencies</artifactId>
+        <version>${spring-cloud-commons.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -85,7 +122,6 @@
         <artifactId>mybatis-spring-boot-starter</artifactId>
         <version>${mybatis.spring.boot.version}</version>
       </dependency>
-
     </dependencies>
 
 
@@ -114,10 +150,30 @@
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
+            <version>${maven-compiler-plugin.version}</version>
+            <inherited>true</inherited>
             <configuration>
               <source>${java.version}</source>
               <target>${java.version}</target>
               <encoding>utf8</encoding>
+              <parameters>true</parameters>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>${maven-deploy-plugin.version}</version>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
+          </plugin>
+
+          <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <configuration>
+              <fork>true</fork>
+              <addResources>true</addResources>
             </configuration>
           </plugin>
     </plugins>
