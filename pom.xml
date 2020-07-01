@@ -6,7 +6,9 @@
 
   <groupId>com.liang.springcloud</groupId>
   <artifactId>SpringCloud-Learning</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>${revision}</version>
+
+
   <modules>
     <module>nacos-discovery-provider8081</module>
     <module>nacos-discovery-consumer8082</module>
@@ -36,6 +38,10 @@
 
   <!--统一管理jar包版本-->
   <properties>
+
+    <!-- Project revision -->
+    <revision>1.0.0.RELEASE</revision>
+
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
 
