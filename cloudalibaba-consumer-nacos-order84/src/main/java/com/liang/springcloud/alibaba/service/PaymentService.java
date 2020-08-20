@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @DATE: 2020-08-19 17:27
  */
 
-@FeignClient(value = "nacos-payment-provider") //声明调用的提供者的name
+@FeignClient(value = "nacos-payment-provider") //声明服务提供者的name
 @Component
 public interface PaymentService {
 
-    @GetMapping("/payment/nacos/{id}")
+    @GetMapping("/payment/{id}")
     public String getPayment(@PathVariable("id")String id);
 }
