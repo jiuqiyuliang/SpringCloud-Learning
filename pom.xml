@@ -12,6 +12,14 @@
   <modules>
     <module>nacos-discovery-provider8081</module>
     <module>nacos-discovery-consumer8082</module>
+    <!--使用restTemplate + ribbon调用服务-->
+    <module>cloudalibaba-consumer-nacos-order83</module>
+    <!--使用feign调用服务  (默认集成了ribbon)-->
+    <module>cloudalibaba-consumer-nacos-order84</module>
+    <!--服务提供者-->
+    <module>cloudalibaba-provider-payment9001</module>
+
+
   </modules>
   <packaging>pom</packaging>
   <name>Spring Cloud Alibaba </name>
