@@ -1,0 +1,3 @@
+spring:
+  profiles:
+    active: info #表示开发环境

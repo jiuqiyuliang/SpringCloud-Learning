@@ -18,6 +18,7 @@
     <module>cloudalibaba-consumer-nacos-order84</module>
     <!--服务提供者-->
     <module>cloudalibaba-provider-payment9001</module>
+      <module>cloudalibaba-config-nacos-client3377</module>
 
 
   </modules>
