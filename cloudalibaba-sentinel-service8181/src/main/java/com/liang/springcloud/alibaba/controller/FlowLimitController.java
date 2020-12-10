@@ -13,6 +13,8 @@ import java.util.concurrent.TimeUnit;
  * @USER: yuliang
  * @DESCRIPTION:
  * @DATE: 2020-12-09 10:27
+ *
+ * 流控规则代码
  */
 
 @RestController
