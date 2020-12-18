@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 public class IpRequestOriginParser implements RequestOriginParser {
     @Override
     public String parseOrigin(HttpServletRequest httpServletRequest) {
-        //返回被限制的originn
+        //返回被限制的origin
         return httpServletRequest.getRemoteAddr();
     }
 }
