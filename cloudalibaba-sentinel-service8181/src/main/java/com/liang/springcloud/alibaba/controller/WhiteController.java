@@ -14,7 +14,7 @@ public class WhiteController {
 
 
     @GetMapping(value = "/white")
-    public String hello() {
+    public String white() {
         return "white Sentinel";
     }
 }
