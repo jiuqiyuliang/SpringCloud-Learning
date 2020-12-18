@@ -21,7 +21,6 @@
     <module>cloudalibaba-config-nacos-client3377</module>
     <module>cloudalibaba-sentinel-service8181</module>
 
-
   </modules>
   <packaging>pom</packaging>
   <name>Spring Cloud Alibaba </name>
