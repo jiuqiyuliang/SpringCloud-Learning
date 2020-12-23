@@ -22,6 +22,11 @@
     <module>cloudalibaba-sentinel-service8181</module>
     <module>cloudalibaba-sentinel8182</module>
     <module>cloud-service-commons</module>
+    <module>cloudalibaba-provider-order1001</module>
+    <module>cloudalibaba-provider-order1002</module>
+    <module>cloudalibaba-sentinel-ribbon7001</module>
+    <module>cloudalibaba-sentinel-openFeign7002</module>
+
 
   </modules>
   <packaging>pom</packaging>
@@ -59,13 +64,12 @@
     <!-- Dependency Versions -->
 
     <!--spring boot-->
-    <spring-boot.version>2.2.5.RELEASE</spring-boot.version>
+    <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
 
 
     <!--spring cloud-->
-    <spring-cloud-commons.version>2.2.2.RELEASE</spring-cloud-commons.version>
-    <spring-cloud-dependencies.version>Hoxton.SR1</spring-cloud-dependencies.version>
-    <spring-cloud-alibaba-dependencies.version>2.1.0.RELEASE</spring-cloud-alibaba-dependencies.version>
+    <spring-cloud-dependencies.version>Hoxton.SR8</spring-cloud-dependencies.version>
+    <spring-cloud-alibaba-dependencies.version>2.2.3.RELEASE</spring-cloud-alibaba-dependencies.version>
 
     <junit.version>4.12</junit.version>
     <log4j.version>1.2.17</log4j.version>
@@ -80,6 +84,7 @@
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
     <maven-deploy-plugin.version>2.8.2</maven-deploy-plugin.version>
+    <spring-boot-maven-plugin.version>2.1.4.RELEASE</spring-boot-maven-plugin.version>
 
   </properties>
 
@@ -110,14 +115,6 @@
         <groupId>com.alibaba.cloud</groupId>
         <artifactId>spring-cloud-alibaba-dependencies</artifactId>
         <version>${spring-cloud-alibaba-dependencies.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-commons-dependencies</artifactId>
-        <version>${spring-cloud-commons.version}</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -188,6 +185,7 @@
           <plugin>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>${spring-boot-maven-plugin.version}</version>
             <configuration>
               <fork>true</fork>
               <addResources>true</addResources>

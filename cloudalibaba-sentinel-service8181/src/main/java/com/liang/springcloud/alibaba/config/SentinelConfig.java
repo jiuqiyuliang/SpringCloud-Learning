@@ -1,5 +1,4 @@
 package com.liang.springcloud.alibaba.config;
-
 import com.alibaba.csp.sentinel.adapter.servlet.callback.WebCallbackManager;
 import org.springframework.context.annotation.Configuration;
 

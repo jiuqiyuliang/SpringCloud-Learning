@@ -1,14 +1,15 @@
 server:
-  port: 9001
+  port: 1001
+
 
 
 spring:
   application:
-    name: nacos-payment-provider
+    name: nacos-order-provider
   cloud:
     nacos:
       discovery:
-        server-addr: localhost:8848
+        server-addr: localhost
 
 management:
   endpoints:
