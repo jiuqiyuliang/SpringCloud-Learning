@@ -35,7 +35,7 @@ public class UserController {
     @GetMapping("/consumer/fallback/{id}")
     @SentinelResource(value = "fallback") //没有配置
 //    @SentinelResource(value = "fallback",fallback = "handlerFallback") //fallback只负责业务异常
-//     @SentinelResource(value = "fallback",fallback = "customerFallback",fallbackClass = CustomerFallback.class) //fallback只负责业务异常
+//     @SentinelResource(value = "fallback",fallback = "customerFallback",fallbackClass = CustomerFallback.class) //独立的业务异常处理
 //     @SentinelResource(value = "fallback",defaultFallback = "defaultFallback") //通常用于通用的 fallback 逻辑（即可以用于很多服务或方法）
 //     @SentinelResource(value = "fallback",defaultFallback = "customerDefaultFallback",fallbackClass = DefaultFallBack.class) //通常用于通用的 fallback 逻辑（即可以用于很多服务或方法）
 //    @SentinelResource(value = "fallback",blockHandler = "blockHandler") //blockHandler只负责sentinel控制台配置违规
@@ -45,6 +45,7 @@ public class UserController {
 
         CommonResult<Order> result = restTemplate.getForObject(serverURL + "/order/" + id, CommonResult.class);
 
+        //模拟业务异常
         if(id == 4){
             throw new IllegalArgumentException("IllegalArgumentException,非法参数");
         }else if(result.getData() == null){

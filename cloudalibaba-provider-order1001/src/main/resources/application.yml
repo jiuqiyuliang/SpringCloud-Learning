@@ -9,7 +9,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost
+        server-addr: localhost #nacos集群，使用的是域名
 
 management:
   endpoints:

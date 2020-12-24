@@ -4,11 +4,11 @@ server:
 
 spring:
   application:
-    name: nacos-order-consumer
+    name: nacos-user-consumer
   cloud:
     nacos:
       discovery:
-        server-addr: localhost
+        server-addr: localhost #nacos集群，使用的是集群
     sentinel:
       transport:
         #配置sentinel dashboard地址

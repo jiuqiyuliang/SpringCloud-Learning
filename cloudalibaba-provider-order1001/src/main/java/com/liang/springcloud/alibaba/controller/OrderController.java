@@ -22,6 +22,7 @@ public class OrderController {
     @Value("${server.port}")
     private String serverPort;
 
+    //模拟数据库数据
     public static HashMap<Long, Order> hashMap = new HashMap<>();
     static {
         hashMap.put(1L,new Order(1L,"fdajlfdasl2181"));
