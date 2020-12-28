@@ -8,7 +8,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost #nacos集群，使用的是集群
+        server-addr: localhost #nacos集群，使用的是域名
     sentinel:
       transport:
         #配置sentinel dashboard地址
