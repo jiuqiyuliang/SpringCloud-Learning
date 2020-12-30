@@ -1,6 +1,5 @@
 server:
-  port: 7002
-
+  port: 7003
 
 
 spring:
@@ -9,7 +8,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: localhost
+        server-addr: localhost #nacos集群，使用的是域名
     sentinel:
       transport:
         #配置sentinel dashboard地址
@@ -18,9 +17,8 @@ spring:
 
 #消费者将要去访问微服务名称
 service-url:
-  nacos-user-service: http://nacos-order-provider
+  nacos-order-service: http://nacos-order-provider
 
-#激活sentinel对feign支持
-feign:
+resttemplate:
   sentinel:
     enabled: true

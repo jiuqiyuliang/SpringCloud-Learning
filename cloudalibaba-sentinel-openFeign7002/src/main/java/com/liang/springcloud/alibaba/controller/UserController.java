@@ -29,11 +29,6 @@ public class UserController {
 
         CommonResult<Order> result = orderService.getOrder(id);
 
-        if(id == 4){
-            throw new IllegalArgumentException("IllegalArgumentException,非法参数");
-        }else if(result.getData() == null){
-            throw new NullPointerException("NullPointerException,该ID没有对应记录");
-        }
 
         return result;
     }

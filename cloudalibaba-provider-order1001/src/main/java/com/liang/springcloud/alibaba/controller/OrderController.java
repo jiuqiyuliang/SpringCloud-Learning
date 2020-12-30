@@ -5,9 +5,11 @@ import com.liang.springcloud.entities.Order;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @PROJECT_NAME: SpringCloud-Learning
@@ -33,10 +35,12 @@ public class OrderController {
     }
 
     @GetMapping("/order/{id}")
-    public CommonResult<Order> getOrder(@PathVariable("id") Long id){
+    public CommonResult<Order> getOrder(@PathVariable("id") Long id)throws Exception{
         Order order = hashMap.get(id);
 
         CommonResult commonResult = new CommonResult(200,"from mysql,serverPort:" + serverPort,order);
+
+        TimeUnit.MILLISECONDS.sleep(300);
 
         if(id ==5){
             throw new IllegalArgumentException("IllegalArgumentException,非法参数");

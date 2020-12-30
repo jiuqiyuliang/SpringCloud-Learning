@@ -26,6 +26,7 @@
     <module>cloudalibaba-provider-order1002</module>
     <module>cloudalibaba-sentinel-ribbon7001</module>
     <module>cloudalibaba-sentinel-openFeign7002</module>
+    <module>cloudalibaba-sentinel-restTemplate7003</module>
 
 
   </modules>
