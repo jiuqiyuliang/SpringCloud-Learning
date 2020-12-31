@@ -40,7 +40,7 @@ public class OrderController {
 
         CommonResult commonResult = new CommonResult(200,"from mysql,serverPort:" + serverPort,order);
 
-        TimeUnit.MILLISECONDS.sleep(300);
+//        TimeUnit.MILLISECONDS.sleep(300); //模拟慢调用
 
         if(id ==5){
             throw new IllegalArgumentException("IllegalArgumentException,非法参数");

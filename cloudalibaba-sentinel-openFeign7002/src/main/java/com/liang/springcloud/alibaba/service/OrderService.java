@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
  * @DESCRIPTION:
  * @DATE: 2020-12-22 10:49
  */
+//原理 SentinelInvocationHandler
 @FeignClient(value = "nacos-order-provider")
 //@FeignClient(value = "nacos-order-provider",fallback = OrderFallbackService.class)
 @Component

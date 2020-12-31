@@ -19,6 +19,7 @@ spring:
 service-url:
   nacos-order-service: http://nacos-order-provider
 
+#默认值即开启，可不写
 resttemplate:
   sentinel:
     enabled: true
