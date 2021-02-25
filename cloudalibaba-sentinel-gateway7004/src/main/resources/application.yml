@@ -1,0 +1,38 @@
+server:
+  port: 7004
+
+
+
+spring:
+  application:
+    name: cloudalibaba-sentinel-gateway
+  cloud:
+    nacos:
+      discovery:
+        #nacos服务注册中心地址
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        #配置sentinel dashboard地址
+        dashboard: localhost:8080
+        port: 8719 #默认8719端口
+      scg:
+        fallback:
+          mode: response
+          response-status: 426
+          response-body: 限流了
+    gateway:
+      routes:
+        - id: order_routh  #路由的ID，没有固定规则但要求唯一，建议配合服务名
+          uri: http://localhost:1001 #匹配后提供服务的路由地址
+#          uri: lb://nacos-order-provider #匹配后提供服务的路由地址
+          predicates:
+            - Path=/order/** #断言，路径相匹配的进行路由
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+

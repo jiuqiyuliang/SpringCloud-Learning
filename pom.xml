@@ -28,6 +28,8 @@
     <module>cloudalibaba-sentinel-openFeign7002</module>
     <module>cloudalibaba-sentinel-restTemplate7003</module>
     <module>cloudalibaba-sentinel-nacos6001</module>
+    <module>cloudalibaba-sentinel-gateway7004</module>
+    <module>cloudalibaba-sentinel-gateway-nacos7005</module>
 
 
   </modules>
