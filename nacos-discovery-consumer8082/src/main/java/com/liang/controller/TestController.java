@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
+
 /**
  * @PROJECT_NAME: SpringCloud-Learning
  * @USER: yuliang
@@ -19,12 +21,20 @@ public class TestController {
     @Autowired
     LoadBalancerClient loadBalancerClient;
 
+    @Autowired
+    RestTemplate restTemplate;
+
     @GetMapping("/test")
     public String test() {
         // 通过spring cloud common中的负载均衡接口选取服务提供节点实现接口调用
-        ServiceInstance serviceInstance = loadBalancerClient.choose("nacos-discovery-provider");
-        String url = serviceInstance.getUri() + "/hello/" + "xiaoliang";
-        RestTemplate restTemplate = new RestTemplate();
-        return restTemplate.getForObject(url, String.class);
+//        ServiceInstance serviceInstance = loadBalancerClient.choose("nacos-discovery-provider");
+//        String url = serviceInstance.getUri() + "/hello/" + "xiaoliang";
+//        RestTemplate restTemplate = new RestTemplate();
+//
+//        String result = restTemplate.getForObject(url, String.class);
+
+        String result = restTemplate.getForObject("http://nacos-discovery-provider" + "/hello/" + "xiaoliang", String.class);
+
+        return result;
     }
 }
