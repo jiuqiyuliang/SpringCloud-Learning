@@ -30,6 +30,7 @@
     <module>cloudalibaba-sentinel-nacos6001</module>
     <module>cloudalibaba-sentinel-gateway7004</module>
     <module>cloudalibaba-sentinel-gateway-nacos7005</module>
+    <module>cloudalibaba-sentinel-cluster</module>
 
 
   </modules>

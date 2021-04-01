@@ -1,0 +1,16 @@
+server:
+  port: 9093
+
+
+
+spring:
+  application:
+    name: cloudalibaba-sentinel-cluster-client-alone
+  cloud:
+    sentinel:
+      transport:
+        #配置sentinel dashboard地址
+        dashboard: localhost:8080
+        port: 8719 #默认8719端口
+
+

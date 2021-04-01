@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>SpringCloud-Learning</artifactId>
+        <groupId>com.liang.springcloud</groupId>
+        <version>1.0.0.RELEASE</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>cloudalibaba-sentinel-cluster</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>cloudalibaba-sentinel-cluster-embedded9091</module>
+        <module>cloudalibaba-sentinel-cluster-server-alone9092</module>
+        <module>cloudalibaba-sentinel-cluster-client-alone9093</module>
+    </modules>
+
+
+</project>
