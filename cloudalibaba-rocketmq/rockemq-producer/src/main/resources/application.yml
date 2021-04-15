@@ -1,0 +1,27 @@
+server:
+  port: 9093
+
+
+
+spring:
+  application:
+    # 应用名称
+    name: cloudalibaba-rocketmq
+
+  cloud:
+    stream:
+      rocketmq:
+        binder:
+          name-server: localhost:9876
+      bindings:
+        # 这里是个 Map 类型参数，{} 为 YAML 中 Map 的行内写法
+        output: {destination: hello-topic, group: hello-topic, content-type: application/json}
+
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
