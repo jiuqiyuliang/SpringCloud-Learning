@@ -24,8 +24,8 @@ public class SplitBatchProducer {
 
         //large batch
         String topic = "BatchTopic";
-        List<Message> messages = new ArrayList<>(100 * 1000);
-        for (int i = 0; i < 100 * 1000; i++) {
+        List<Message> messages = new ArrayList<>(100);
+        for (int i = 0; i < 100; i++) {
             messages.add(new Message(topic, "Tag", "OrderID" + i, ("Hello world " + i).getBytes()));
         }
 

@@ -10,6 +10,7 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
  * @USER: yuliang
  * @DESCRIPTION:
  * @DATE: 2021-04-19 15:18
+ *
  */
 public class SqlFilterProducer {
 
@@ -26,7 +27,7 @@ public class SqlFilterProducer {
         producer.start();
 
         String[] tags = new String[] {"TagA", "TagB", "TagC"};
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 10; i++) {
             //创建一条消息对象，指定其主题、标签和消息内容
             Message message = new Message(
                     "FilterSQLTopic" /* 消息主题名 */,

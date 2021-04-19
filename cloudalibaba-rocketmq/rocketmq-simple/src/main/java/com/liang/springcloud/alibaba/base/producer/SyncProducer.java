@@ -15,25 +15,30 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
  */
 public class SyncProducer {
     public static void main(String[] args) throws Exception {
-        //Instantiate with a producer group name.
+        //1.创建消息生产者producer，并制定生产者组名
         DefaultMQProducer producer = new
                 DefaultMQProducer("please_rename_unique_group_name");
-        // Specify name server addresses.
+        //2.指定Nameserver地址
         producer.setNamesrvAddr("localhost:9876");
-        //Launch the instance.
+        //3.启动producer
         producer.start();
         for (int i = 0; i < 10; i++) {
-            //Create a message instance, specifying topic, tag and message body.
+            //4.创建消息对象，指定主题Topic、Tag和消息体
+            /**
+             * 参数一：消息主题Topic
+             * 参数二：消息Tag
+             * 参数三：消息内容
+             */
             Message msg = new Message("TopicTest" /* Topic */,
                     "TagA" /* Tag */,
                     ("Hello RocketMQ " +
                             i).getBytes(RemotingHelper.DEFAULT_CHARSET) /* Message body */
             );
-            //Call send message to deliver message to one of brokers.
+            //5.发送同步消息，将消息发送给其中一个broker
             SendResult sendResult = producer.send(msg);
             System.out.printf("%s%n", sendResult);
         }
-        //Shut down once the producer instance is not longer in use.
+        //6.关闭生产者producer
         producer.shutdown();
     }
 

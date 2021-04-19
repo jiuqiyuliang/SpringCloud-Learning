@@ -43,21 +43,18 @@ public class ProducerInOrder {
             String body = dateStr + " Hello RocketMQ " + orderList.get(i);
             Message msg = new Message("OrderTopic", tags[i % tags.length], "KEY" + i, body.getBytes());
 
+            //自定义消息队列选取规则
 //            SendResult sendResult = producer.send(msg, new MessageQueueSelector() {
 //                @Override
 //                public MessageQueue select(List<MessageQueue> mqs, Message msg, Object arg) {
-////                    Long id = (Long) arg;  //根据订单id选择发送queue
-////                    long index = id % mqs.size();
-//                    return mqs.get((int) 0);
+//                    Long id = (Long) arg;  //根据订单id选择发送queue
+//                    long index = id % mqs.size();
+//                    return mqs.get((int) index);
 //                }
 //            }, orderList.get(i).getOrderId());//订单id
-//
-//            System.out.println(String.format("SendResult status:%s, queueId:%d, body:%s",
-//                    sendResult.getSendStatus(),
-//                    sendResult.getMessageQueue().getQueueId(),
-//                    body));
 
-            SendResult sendResult = producer.send(msg, new SelectMessageQueueByRandom(), orderList.get(i).getOrderId());
+            //SelectMessageQueueByHash，官方提供的选取规则,还有其他实现，大家自行发现
+            SendResult sendResult = producer.send(msg, new SelectMessageQueueByHash(), orderList.get(i).getOrderId());
 
             System.out.println(String.format("SendResult status:%s, queueId:%d, body:%s",
                     sendResult.getSendStatus(),

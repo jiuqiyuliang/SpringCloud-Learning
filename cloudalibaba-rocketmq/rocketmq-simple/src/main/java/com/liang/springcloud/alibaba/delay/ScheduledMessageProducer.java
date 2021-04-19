@@ -20,11 +20,11 @@ public class ScheduledMessageProducer {
         producer.setNamesrvAddr("localhost:9876");
         // 启动生产者
         producer.start();
-        int totalMessagesToSend = 100;
+        int totalMessagesToSend = 10;
         for (int i = 0; i < totalMessagesToSend; i++) {
             Message message = new Message("DelayTopic", ("Hello scheduled message " + i).getBytes());
             // 设置延时等级3,这个消息将在10s之后发送(现在只支持固定的几个时间,详看delayTimeLevel)
-            message.setDelayTimeLevel(4);
+            message.setDelayTimeLevel(3);
             // 发送消息
             producer.send(message);
         }

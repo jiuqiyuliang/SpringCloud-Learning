@@ -58,9 +58,6 @@ public class Producer {
                 e.printStackTrace();
             }
         }
-        for (int i = 0; i < 100000; i++) {
-            Thread.sleep(1000);
-        }
 
         // 一旦生产者实例不再被使用则将其关闭，包括清理资源，关闭网络连接等
         producer.shutdown();

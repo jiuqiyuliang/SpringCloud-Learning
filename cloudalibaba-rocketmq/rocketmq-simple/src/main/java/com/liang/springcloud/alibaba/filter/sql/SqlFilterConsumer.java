@@ -16,6 +16,10 @@ import java.util.List;
  * @USER: yuliang
  * @DESCRIPTION:
  * @DATE: 2021-04-19 15:19
+ * MQClientException: CODE: 1  DESC: The broker does not support consumer to filter message by SQL92
+ * 需要添加配置
+ * # 开启对propertyFilter的支持
+ * enablePropertyFilter = true
  */
 public class SqlFilterConsumer {
 

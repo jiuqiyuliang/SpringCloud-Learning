@@ -27,7 +27,7 @@ public class TagFilterProducer {
         String[] tags = new String[] {"TagA", "TagB", "TagC"};
 
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10; i++) {
             //创建一条消息对象，指定其主题、标签和消息内容
             Message msg = new Message(
                     "FilterTagTopic" /* 消息主题名 */,
