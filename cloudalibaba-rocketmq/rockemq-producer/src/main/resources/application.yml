@@ -7,7 +7,6 @@ spring:
   application:
     # 应用名称
     name: cloudalibaba-rocketmq
-
   cloud:
     stream:
       rocketmq:

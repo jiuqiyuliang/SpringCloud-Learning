@@ -10,6 +10,8 @@ import org.apache.rocketmq.remoting.common.RemotingHelper;
  * @USER: yuliang
  * @DESCRIPTION:
  * @DATE: 2021-04-14 09:30
+ *
+ * 同步消息 - 生产者
  */
 public class SyncProducer {
     public static void main(String[] args) throws Exception {
@@ -17,10 +19,10 @@ public class SyncProducer {
         DefaultMQProducer producer = new
                 DefaultMQProducer("please_rename_unique_group_name");
         // Specify name server addresses.
-        producer.setNamesrvAddr("10.133.40.30:9876");
+        producer.setNamesrvAddr("localhost:9876");
         //Launch the instance.
         producer.start();
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 10; i++) {
             //Create a message instance, specifying topic, tag and message body.
             Message msg = new Message("TopicTest" /* Topic */,
                     "TagA" /* Tag */,

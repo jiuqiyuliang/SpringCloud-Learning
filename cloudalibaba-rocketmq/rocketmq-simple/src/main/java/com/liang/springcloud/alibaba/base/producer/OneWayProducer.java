@@ -11,6 +11,8 @@ import java.util.concurrent.TimeUnit;
  * @USER: yuliang
  * @DESCRIPTION:
  * @DATE: 2021-04-14 09:31
+ *
+ * 单向消息 - 生产者
  */
 public class OneWayProducer {
 
@@ -22,14 +24,14 @@ public class OneWayProducer {
         //3.启动producer
         producer.start();
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 1; i++) {
             //4.创建消息对象，指定主题Topic、Tag和消息体
             /**
              * 参数一：消息主题Topic
              * 参数二：消息Tag
              * 参数三：消息内容
              */
-            Message msg = new Message("base", "Tag3", ("Hello World，单向消息" + i).getBytes());
+            Message msg = new Message("TopicTest", "Tag3", ("Hello World，单向消息" + i).getBytes());
             //5.发送单向消息
             producer.sendOneway(msg);
 

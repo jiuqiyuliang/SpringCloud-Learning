@@ -14,6 +14,8 @@ import java.util.concurrent.TimeUnit;
  * @USER: yuliang
  * @DESCRIPTION:
  * @DATE: 2021-04-14 15:21
+ *
+ * 异步消息 - 生产者
  */
 public class AsyncProducer {
     public static void main(String[] args) throws Exception {
@@ -23,14 +25,13 @@ public class AsyncProducer {
         producer.setNamesrvAddr("localhost:9876");
         //Launch the instance.
         producer.start();
-        producer.setRetryTimesWhenSendAsyncFailed(0);
 
-        int messageCount = 100;
+        int messageCount = 1;
         final CountDownLatch countDownLatch = new CountDownLatch(messageCount);
         for (int i = 0; i < messageCount; i++) {
             try {
                 final int index = i;
-                Message msg = new Message("Jodie_topic_1023",
+                Message msg = new Message("TopicTest",
                         "TagA",
                         "OrderID188",
                         "Hello world".getBytes(RemotingHelper.DEFAULT_CHARSET));
